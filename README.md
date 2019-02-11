@@ -2,7 +2,7 @@
 
 Displaying recent Lobste.rs posts in your MacOS menubar
 
-<img src="pictures/img_001.png" width="100">
+<img src="pictures/img_001.png" width="400">
 
 ## Install
 
