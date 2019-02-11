@@ -11,6 +11,7 @@
 		3C44EEF12201864D00180EAE /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44EEF02201864D00180EAE /* PreferencesViewController.swift */; };
 		3C44EEF322019F6300180EAE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44EEF222019F6300180EAE /* Const.swift */; };
 		3C44EEF522019FC100180EAE /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44EEF422019FC100180EAE /* Setting.swift */; };
+		3C502D532202CA3B00468BE5 /* PopoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C502D522202CA3B00468BE5 /* PopoverContentView.swift */; };
 		3C57366F21FB0F7D00FD5498 /* LauncherApplication.app in Sources */ = {isa = PBXBuildFile; fileRef = 3CC05D3721FB07F100AB7E22 /* LauncherApplication.app */; };
 		3CC05D0A21F9680B00AB7E22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC05D0921F9680B00AB7E22 /* AppDelegate.swift */; };
 		3CC05D0C21F9680B00AB7E22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC05D0B21F9680B00AB7E22 /* MainViewController.swift */; };
@@ -28,6 +29,7 @@
 		3CC05D4121FB07F200AB7E22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC05D3F21FB07F200AB7E22 /* Main.storyboard */; };
 		3CC05D4821FB08D000AB7E22 /* LauncherApplication.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3CC05D3721FB07F100AB7E22 /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3CC05D4A21FB097800AB7E22 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC05D4921FB097800AB7E22 /* ServiceManagement.framework */; };
+		3CE2EED222111DC50014DBB3 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE2EED122111DC50014DBB3 /* Date+extension.swift */; };
 		43D85BC05C945BC8D9D13910 /* Pods_Lobsters_Bar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D3D20ED0A83AB57B10340B /* Pods_Lobsters_Bar.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,7 @@
 		3C44EEF02201864D00180EAE /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		3C44EEF222019F6300180EAE /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		3C44EEF422019FC100180EAE /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		3C502D522202CA3B00468BE5 /* PopoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverContentView.swift; sourceTree = "<group>"; };
 		3CC05D0621F9680B00AB7E22 /* Lobsters Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lobsters Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC05D0921F9680B00AB7E22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CC05D0B21F9680B00AB7E22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		3CC05D4221FB07F200AB7E22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC05D4321FB07F200AB7E22 /* LauncherApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LauncherApplication.entitlements; sourceTree = "<group>"; };
 		3CC05D4921FB097800AB7E22 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		3CE2EED122111DC50014DBB3 /* Date+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extension.swift"; sourceTree = "<group>"; };
 		60427DCBA7BABFD4C1F4CE70 /* Pods-Lobsters Bar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lobsters Bar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lobsters Bar/Pods-Lobsters Bar.release.xcconfig"; sourceTree = "<group>"; };
 		759F209A6DFEF2322707928C /* Pods-Lobsters Bar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lobsters Bar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lobsters Bar/Pods-Lobsters Bar.debug.xcconfig"; sourceTree = "<group>"; };
 		F9D3D20ED0A83AB57B10340B /* Pods_Lobsters_Bar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lobsters_Bar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3C502D542202CA4000468BE5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3C502D522202CA3B00468BE5 /* PopoverContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3CC05CFD21F9680B00AB7E22 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +163,7 @@
 				3CC05D0921F9680B00AB7E22 /* AppDelegate.swift */,
 				3CC05D1C21F96F9A00AB7E22 /* Models */,
 				3CC05D1B21F96F9000AB7E22 /* Controllers */,
+				3C502D542202CA4000468BE5 /* Views */,
 				3CC05D2421F9A06800AB7E22 /* Utils */,
 				3CC05D2A21F9A1FC00AB7E22 /* Extensions */,
 				3CC05D0D21F9680C00AB7E22 /* Assets.xcassets */,
@@ -205,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				3CC05D2B21F9A21B00AB7E22 /* Error+extenstion.swift */,
+				3CE2EED122111DC50014DBB3 /* Date+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +408,8 @@
 				3CC05D2921F9A0EB00AB7E22 /* APIEndpoint.swift in Sources */,
 				3CC05D1A21F96D5F00AB7E22 /* EventMonitor.swift in Sources */,
 				3C44EEF522019FC100180EAE /* Setting.swift in Sources */,
+				3CE2EED222111DC50014DBB3 /* Date+extension.swift in Sources */,
+				3C502D532202CA3B00468BE5 /* PopoverContentView.swift in Sources */,
 				3CC05D0C21F9680B00AB7E22 /* MainViewController.swift in Sources */,
 				3CC05D0A21F9680B00AB7E22 /* AppDelegate.swift in Sources */,
 				3CC05D2721F9A08F00AB7E22 /* APIEngine.swift in Sources */,

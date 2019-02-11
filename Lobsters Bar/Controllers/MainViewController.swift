@@ -15,6 +15,8 @@ class MainViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    @IBOutlet weak var boxHeader: NSBox!
+    @IBOutlet weak var lblUpdateTime: NSTextField!
     
     @IBAction func btnMenuDidPressed(_ sender: NSButton) {
         let p = NSPoint(x: sender.frame.origin.x, y: sender.frame.origin.y - (sender.frame.height / 2))
@@ -29,6 +31,8 @@ class MainViewController: NSViewController {
     private let disposeBag = DisposeBag()
     private var timer = RepeatingTimer(timeInterval: 60*10) // every 10 mins
     private let appMenu = NSMenu()
+    private let prefWindowIsOpen = false
+    private var updateDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,20 +44,36 @@ class MainViewController: NSViewController {
         fetchData()
         handleNotification()
     }
-    
-    override func viewWillAppear() {
-        super.viewWillAppear()
-    }
 
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        setupLabelTime()
+    }
+    
+    private func setupLabelTime() {
+        lblUpdateTime.stringValue = updateDate.timeAgoDisplay()
+    }
 
     private func setupUI() {
         progressIndicator.wantsLayer = true
         progressIndicator.layer?.backgroundColor = NSColor.clear.cgColor
+        view.wantsLayer = true
+        view.layer?.backgroundColor = .white
+        let headerGradientLayer = CAGradientLayer()
+        headerGradientLayer.colors = [#colorLiteral(red: 0.9294117647, green: 0.9254901961, blue: 0.9294117647, alpha: 1), #colorLiteral(red: 0.8235294118, green: 0.8196078431, blue: 0.8235294118, alpha: 1)]
+        headerGradientLayer.type = .axial
+        headerGradientLayer.frame = boxHeader.bounds
+        let customView = NSView()
+        customView.frame = boxHeader.bounds
+        customView.layer = headerGradientLayer
+        customView.wantsLayer = true
+        boxHeader.addSubview(customView)
     }
     
     private func setupMenu() {
@@ -71,7 +91,7 @@ class MainViewController: NSViewController {
         let time = Setting.timeToRefresh
         timer = RepeatingTimer(timeInterval: 60 * Double(time))
         timer.eventHandler = { [weak self] in
-            self?.fetchDataBackground()
+            self?.fetchData(inBackground: true)
         }
         timer.resume()
     }
@@ -80,32 +100,27 @@ class MainViewController: NSViewController {
         let vc = PreferencesViewController.initWithStoryboard()
         let window = NSWindow(contentViewController: vc)
         window.title = "Preferences"
+        window.setFrameOrigin(NSPoint(x: 200, y: 305))
         window.styleMask = [.titled, .closable, .miniaturizable]
         window.makeKeyAndOrderFront(self)
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    private func fetchDataBackground() {
+    private func fetchData(inBackground: Bool = false) {
+        // foreground
+        if !inBackground {
+            progressIndicator.isHidden = false
+            progressIndicator.startAnimation(self)
+        }
         NetworkAdapter.getFrontpage()
             .subscribe(onNext: { [weak self] posts in
                 guard let strongSelf = self else {return}
+                if !inBackground {
+                    strongSelf.progressIndicator.isHidden = true
+                }
                 strongSelf.dataSource = posts
                 strongSelf.tableView.reloadData()
-            }, onError: { error in
-                print(error.description())
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func fetchData() {
-        progressIndicator.isHidden = false
-        progressIndicator.startAnimation(self)
-        NetworkAdapter.getFrontpage()
-            .subscribe(onNext: { [weak self] posts in
-                guard let strongSelf = self else {return}
-                strongSelf.progressIndicator.isHidden = true
-                strongSelf.dataSource = posts
-                strongSelf.tableView.reloadData()
+                strongSelf.updateDate = Date()
                 }, onError: { error in
                     print(error.description())
             })
