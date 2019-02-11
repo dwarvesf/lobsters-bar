@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+
         // Check launcher is running
         let launcherAppId = "io.github.phucledien.LauncherApplication"
         let runningApps = NSWorkspace.shared.runningApplications
