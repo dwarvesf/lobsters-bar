@@ -25,7 +25,7 @@ From Source:
 2. Install dependencies with `pod install`
 3. Archive this project
 
-Manual:
+From Image:
 
 1. [Download](https://github.com/dwarvesf/lobsters-bar/releases/latest), open, and drag the app to the Applications folder.
 
