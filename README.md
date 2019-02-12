@@ -1,4 +1,3 @@
-## Lobsters Bar
 <p align="center">
 	<img width="200" height="200" margin-right="100%" src="https://github.com/dwarvesf/lobsters-bar/blob/master/Lobsters%20Bar/Assets.xcassets/AppIcon.appiconset/1024x1024.png">
 </p>
