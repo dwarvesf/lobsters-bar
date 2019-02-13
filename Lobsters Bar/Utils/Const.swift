@@ -12,11 +12,13 @@ extension UserDefaults {
     enum Name {
         static let isAutoStart = "isAutoStart"
         static let timeToRefresh = "timeToRefresh"
+        static let isFirstTimeStart = "isFirstTimeStart"
     }
 }
 
 extension NotificationCenter {
     enum Name {
-         static let settingDidChanged = "settingDidChanged"
+        static let settingDidChanged = "settingDidChanged"
+        static let preferencesOpened = "preferencesOpened"
     }
 }

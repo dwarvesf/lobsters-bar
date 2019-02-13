@@ -759,6 +759,7 @@
                                     <constraint firstAttribute="height" constant="32" id="hNc-cc-HQN"/>
                                 </constraints>
                                 <color key="fillColor" red="0.92941176470588238" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="34" horizontalPageScroll="10" verticalLineScroll="34" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsR-y1-Kjb">
                                 <rect key="frame" x="0.0" y="0.0" width="420" height="568"/>
@@ -899,68 +900,205 @@
             <objects>
                 <viewController storyboardIdentifier="PreferencesViewController" id="kn7-lp-mdu" customClass="PreferencesViewController" customModule="Lobsters_Bar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rNC-r6-nb0">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="320"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="faR-2B-Umu">
-                                <rect key="frame" x="8" y="172" width="112" height="18"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="General Settings" id="w9U-Tp-VWg">
-                                    <font key="font" metaFont="menuBar"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iwm-CF-I7J">
-                                <rect key="frame" x="8" y="108" width="232" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Auto start Lobsters Bar when login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vjL-28-IWj">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="autoStartDidChanged:" target="kn7-lp-mdu" id="jxf-Bz-od2"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VUE-6w-20t">
-                                <rect key="frame" x="8" y="78" width="116" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Auto refresh every" id="fW3-RH-Om7">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSU-jg-Ja3">
-                                <rect key="frame" x="128" y="73" width="58" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="5" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="5" imageScaling="proportionallyDown" inset="2" selectedItem="bUw-kN-iMY" id="nQl-rt-e1h">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="zmF-Kv-9YB">
-                                        <items>
-                                            <menuItem title="5" state="on" tag="5" id="bUw-kN-iMY"/>
-                                            <menuItem title="10" tag="10" id="Fzd-0W-mA9"/>
-                                            <menuItem title="15" tag="15" id="1bB-PQ-kdH"/>
-                                        </items>
-                                    </menu>
-                                </popUpButtonCell>
-                                <connections>
-                                    <action selector="popUpDidChanged:" target="kn7-lp-mdu" id="3HK-ic-U2L"/>
-                                </connections>
-                            </popUpButton>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AK9-kP-se8">
-                                <rect key="frame" x="187" y="77" width="53" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="minutes" id="NPx-7G-hZv">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <box autoresizesSubviews="NO" boxType="custom" borderType="none" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Z5y-pe-oBy">
+                                <rect key="frame" x="0.0" y="115" width="400" height="205"/>
+                                <view key="contentView" id="DA2-Xf-R2K">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="205"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="faR-2B-Umu">
+                                            <rect key="frame" x="159" y="75" width="82" height="21"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Preferences" id="w9U-Tp-VWg">
+                                                <font key="font" size="14" name="HelveticaNeue-Medium"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iwm-CF-I7J">
+                                            <rect key="frame" x="84" y="49" width="232" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Auto start Lobsters Bar when login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vjL-28-IWj">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="autoStartDidChanged:" target="kn7-lp-mdu" id="jxf-Bz-od2"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aQP-Mt-e50">
+                                            <rect key="frame" x="163" y="122" width="75" height="18"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Version 1.0" id="fAD-Gt-EO0">
+                                                <font key="font" metaFont="menuBar"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="clF-Wm-BOd">
+                                            <rect key="frame" x="109" y="145" width="182" height="40"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Lobsters Bar" id="Gut-tb-V0K">
+                                                <font key="font" size="33" name=".AppleSystemUIFont"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VUE-6w-20t">
+                                            <rect key="frame" x="89" y="22" width="116" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Auto refresh every" id="fW3-RH-Om7">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mSU-jg-Ja3">
+                                            <rect key="frame" x="206" y="17" width="53" height="25"/>
+                                            <popUpButtonCell key="cell" type="push" title="5" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="5" imageScaling="proportionallyDown" inset="2" selectedItem="bUw-kN-iMY" id="nQl-rt-e1h">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="zmF-Kv-9YB">
+                                                    <items>
+                                                        <menuItem title="5" state="on" tag="5" id="bUw-kN-iMY"/>
+                                                        <menuItem title="10" tag="10" id="Fzd-0W-mA9"/>
+                                                        <menuItem title="15" tag="15" id="1bB-PQ-kdH"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="popUpDidChanged:" target="kn7-lp-mdu" id="3HK-ic-U2L"/>
+                                            </connections>
+                                        </popUpButton>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AK9-kP-se8">
+                                            <rect key="frame" x="259" y="22" width="53" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="minutes" id="NPx-7G-hZv">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="VUE-6w-20t" secondAttribute="bottom" constant="22" id="5GF-Zw-vCL"/>
+                                        <constraint firstItem="AK9-kP-se8" firstAttribute="centerY" secondItem="mSU-jg-Ja3" secondAttribute="centerY" id="I2h-fw-AFU"/>
+                                        <constraint firstItem="aQP-Mt-e50" firstAttribute="top" secondItem="clF-Wm-BOd" secondAttribute="bottom" constant="5" id="LKG-nj-xv6"/>
+                                        <constraint firstItem="mSU-jg-Ja3" firstAttribute="centerY" secondItem="VUE-6w-20t" secondAttribute="centerY" id="Lid-YR-ksS"/>
+                                        <constraint firstItem="faR-2B-Umu" firstAttribute="centerX" secondItem="DA2-Xf-R2K" secondAttribute="centerX" id="Tmx-3W-GU9"/>
+                                        <constraint firstItem="clF-Wm-BOd" firstAttribute="centerX" secondItem="DA2-Xf-R2K" secondAttribute="centerX" id="WmE-Qj-JUH"/>
+                                        <constraint firstItem="mSU-jg-Ja3" firstAttribute="leading" secondItem="VUE-6w-20t" secondAttribute="trailing" constant="5" id="ZVD-zI-IL2"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AK9-kP-se8" secondAttribute="trailing" constant="10" id="i1c-aY-Amg"/>
+                                        <constraint firstItem="VUE-6w-20t" firstAttribute="leading" secondItem="Iwm-CF-I7J" secondAttribute="leading" constant="5" id="itM-nC-dpd"/>
+                                        <constraint firstItem="aQP-Mt-e50" firstAttribute="centerX" secondItem="DA2-Xf-R2K" secondAttribute="centerX" id="jBo-0S-e22"/>
+                                        <constraint firstItem="Iwm-CF-I7J" firstAttribute="centerX" secondItem="DA2-Xf-R2K" secondAttribute="centerX" id="pcp-q4-QfR"/>
+                                        <constraint firstItem="Iwm-CF-I7J" firstAttribute="top" secondItem="faR-2B-Umu" secondAttribute="bottom" constant="10" id="r9Z-1F-l0M"/>
+                                        <constraint firstItem="AK9-kP-se8" firstAttribute="leading" secondItem="mSU-jg-Ja3" secondAttribute="trailing" constant="5" id="w5w-IO-GPc"/>
+                                        <constraint firstItem="mSU-jg-Ja3" firstAttribute="top" secondItem="Iwm-CF-I7J" secondAttribute="bottom" constant="10" id="z8q-Hl-9qn"/>
+                                        <constraint firstItem="clF-Wm-BOd" firstAttribute="top" secondItem="DA2-Xf-R2K" secondAttribute="top" constant="20" id="zYv-Tc-1no"/>
+                                    </constraints>
+                                </view>
+                                <color key="fillColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="titleFont" metaFont="smallSystem"/>
+                            </box>
+                            <box boxType="custom" borderType="none" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="JoG-1L-1T8">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="115"/>
+                                <view key="contentView" id="Ica-mg-F37">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="115"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7yM-SO-n22">
+                                            <rect key="frame" x="108" y="80" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="j3A-JC-jUJ"/>
+                                                <constraint firstAttribute="width" constant="24" id="nVe-X4-Kpy"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_compass" id="Kgx-Xy-s8r"/>
+                                            <color key="contentTintColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sqn-st-q50">
+                                            <rect key="frame" x="108" y="12" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="2KG-u8-BYg"/>
+                                                <constraint firstAttribute="height" constant="24" id="qjP-ie-XTN"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_email" id="iWl-uH-gVl"/>
+                                            <color key="contentTintColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zBq-Ck-eS1" customClass="HyperlinkTextField" customModule="Lobsters_Bar" customModuleProvider="target">
+                                            <rect key="frame" x="135" y="83" width="143" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Visit Dwarvesf Website" id="YJU-g8-Qg0">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://dwarves.foundation/"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-RZ-uZO">
+                                            <rect key="frame" x="108" y="46" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="1AV-oi-mjf"/>
+                                                <constraint firstAttribute="height" constant="24" id="hxC-SZ-xOc"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ico_fb" id="clI-XY-FIb"/>
+                                            <color key="contentTintColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DPo-g5-Clf" customClass="HyperlinkTextField" customModule="Lobsters_Bar" customModuleProvider="target">
+                                            <rect key="frame" x="135" y="15" width="57" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Email Us" id="hUu-vX-Rbw">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="mailto:team@dwarves.foundation"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-Sy-M9h" customClass="HyperlinkTextField" customModule="Lobsters_Bar" customModuleProvider="target">
+                                            <rect key="frame" x="135" y="49" width="151" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Like Dwarvesf Facebook" id="0yN-sr-lg7">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://www.facebook.com/dwarvesf/"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oGf-Sy-M9h" secondAttribute="trailing" constant="10" id="0Jh-hH-LTX"/>
+                                        <constraint firstItem="7yM-SO-n22" firstAttribute="leading" secondItem="DqJ-RZ-uZO" secondAttribute="leading" id="5Fx-IV-1Ah"/>
+                                        <constraint firstItem="DqJ-RZ-uZO" firstAttribute="centerY" secondItem="Ica-mg-F37" secondAttribute="centerY" id="BJs-7a-aqC"/>
+                                        <constraint firstItem="DPo-g5-Clf" firstAttribute="leading" secondItem="Sqn-st-q50" secondAttribute="trailing" constant="5" id="J9i-sr-1uC"/>
+                                        <constraint firstItem="oGf-Sy-M9h" firstAttribute="centerY" secondItem="DqJ-RZ-uZO" secondAttribute="centerY" id="WZn-Ry-h9M"/>
+                                        <constraint firstItem="Sqn-st-q50" firstAttribute="top" secondItem="DqJ-RZ-uZO" secondAttribute="bottom" constant="10" id="Zrh-HH-ub2"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zBq-Ck-eS1" secondAttribute="trailing" constant="10" id="bcg-uR-NUB"/>
+                                        <constraint firstItem="DPo-g5-Clf" firstAttribute="centerY" secondItem="Sqn-st-q50" secondAttribute="centerY" id="d7B-V1-jI4"/>
+                                        <constraint firstItem="DqJ-RZ-uZO" firstAttribute="top" secondItem="7yM-SO-n22" secondAttribute="bottom" constant="10" id="jTG-fM-Ci5"/>
+                                        <constraint firstItem="zBq-Ck-eS1" firstAttribute="leading" secondItem="7yM-SO-n22" secondAttribute="trailing" constant="5" id="nBV-2g-0T3"/>
+                                        <constraint firstItem="zBq-Ck-eS1" firstAttribute="centerY" secondItem="7yM-SO-n22" secondAttribute="centerY" id="rJy-tQ-pML"/>
+                                        <constraint firstItem="DqJ-RZ-uZO" firstAttribute="leading" secondItem="Ica-mg-F37" secondAttribute="leading" constant="108" id="rxQ-Fk-pg1"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DPo-g5-Clf" secondAttribute="trailing" constant="10" id="tfg-Ip-cZD"/>
+                                        <constraint firstItem="Sqn-st-q50" firstAttribute="leading" secondItem="DqJ-RZ-uZO" secondAttribute="leading" id="tkM-Ph-TJy"/>
+                                        <constraint firstItem="oGf-Sy-M9h" firstAttribute="leading" secondItem="DqJ-RZ-uZO" secondAttribute="trailing" constant="5" id="v5F-NK-ZaS"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="Nos-Ja-nVY"/>
+                                </constraints>
+                                <color key="borderColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="fillColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="titleFont" metaFont="smallSystem"/>
+                            </box>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="faR-2B-Umu" firstAttribute="leading" secondItem="rNC-r6-nb0" secondAttribute="leading" constant="10" id="LjQ-RB-PmB"/>
-                            <constraint firstItem="faR-2B-Umu" firstAttribute="top" secondItem="rNC-r6-nb0" secondAttribute="top" constant="10" id="c3z-gH-OAH"/>
+                            <constraint firstAttribute="trailing" secondItem="Z5y-pe-oBy" secondAttribute="trailing" id="9s5-6L-o9m"/>
+                            <constraint firstItem="JoG-1L-1T8" firstAttribute="top" secondItem="Z5y-pe-oBy" secondAttribute="bottom" id="BD5-Lc-PBA"/>
+                            <constraint firstAttribute="trailing" secondItem="JoG-1L-1T8" secondAttribute="trailing" id="CyW-yC-xaH"/>
+                            <constraint firstAttribute="bottom" secondItem="JoG-1L-1T8" secondAttribute="bottom" id="SmB-2A-Ohw"/>
+                            <constraint firstItem="Z5y-pe-oBy" firstAttribute="leading" secondItem="rNC-r6-nb0" secondAttribute="leading" id="bhf-SY-Pb2"/>
+                            <constraint firstItem="JoG-1L-1T8" firstAttribute="leading" secondItem="rNC-r6-nb0" secondAttribute="leading" id="pnK-MR-daI"/>
+                            <constraint firstItem="Z5y-pe-oBy" firstAttribute="top" secondItem="rNC-r6-nb0" secondAttribute="top" id="w3U-h9-WU7"/>
                         </constraints>
                     </view>
                     <connections>
@@ -970,11 +1108,14 @@
                 </viewController>
                 <customObject id="Y1l-Mn-AZL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="499" y="326"/>
+            <point key="canvasLocation" x="568" y="457"/>
         </scene>
     </scenes>
     <resources>
         <image name="ico_comment" width="33" height="20"/>
+        <image name="ico_compass" width="372" height="384"/>
+        <image name="ico_email" width="384" height="384"/>
+        <image name="ico_fb" width="336" height="384"/>
         <image name="ico_refresh" width="14" height="13"/>
         <image name="ico_setting" width="16" height="17"/>
         <image name="ico_upvote" width="33" height="16"/>

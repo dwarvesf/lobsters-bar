@@ -20,15 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
-    var inDarkMode: Bool {
-        let mode = UserDefaults.standard.string(forKey: "AppleInterfaceStyle")
-        return mode == "Dark"
-    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         // Check launcher is running
-        let launcherAppId = "io.github.phucledien.LauncherApplication"
+        let launcherAppId = "com.dwarvesf.LauncherApplication"
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
         
@@ -59,6 +55,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if let strongSelf = self, strongSelf.popover.isShown {
                 strongSelf.closePopover(sender: event)
             }
+        }
+        
+        // Show preferences window in the first time start app
+        let isFirstTimeStart = UserDefaults.standard.value(forKey: UserDefaults.Name.isFirstTimeStart) as? Bool ?? true
+        if isFirstTimeStart {
+            showPreferencesWindow()
+            UserDefaults.standard.set(false, forKey: UserDefaults.Name.isFirstTimeStart)
+        }
+        
+        // Observe pref open so close the popover
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: NotificationCenter.Name.preferencesOpened), object: nil, queue: nil) { [weak self] (notification) in
+            self?.closePopover(sender: self)
         }
     }
     
@@ -97,6 +105,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.highlight(false)
         }
+    }
+    
+    func showPreferencesWindow() {
+        let vc = PreferencesViewController.initWithStoryboard()
+        let window = NSWindow(contentViewController: vc)
+        window.title = "Preferences"
+        window.backgroundColor = #colorLiteral(red: 0.2392156863, green: 0.2392156863, blue: 0.2666666667, alpha: 1)
+        window.setFrameOrigin(NSPoint(x: 480, y: 305))
+        window.styleMask = [.titled, .closable, .miniaturizable]
+        window.titlebarAppearsTransparent = true
+        window.titleVisibility = .hidden
+        window.makeKeyAndOrderFront(self)
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

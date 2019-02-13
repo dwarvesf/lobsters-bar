@@ -11,6 +11,7 @@
 		3C44EEF12201864D00180EAE /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44EEF02201864D00180EAE /* PreferencesViewController.swift */; };
 		3C44EEF322019F6300180EAE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44EEF222019F6300180EAE /* Const.swift */; };
 		3C44EEF522019FC100180EAE /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C44EEF422019FC100180EAE /* Setting.swift */; };
+		3C46D2FE2213D81100A54F16 /* HyperLinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46D2FD2213D81100A54F16 /* HyperLinkTextField.swift */; };
 		3C502D532202CA3B00468BE5 /* PopoverContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C502D522202CA3B00468BE5 /* PopoverContentView.swift */; };
 		3C57366F21FB0F7D00FD5498 /* LauncherApplication.app in Sources */ = {isa = PBXBuildFile; fileRef = 3CC05D3721FB07F100AB7E22 /* LauncherApplication.app */; };
 		3CC05D0A21F9680B00AB7E22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC05D0921F9680B00AB7E22 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		3C44EEF02201864D00180EAE /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		3C44EEF222019F6300180EAE /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		3C44EEF422019FC100180EAE /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		3C46D2FD2213D81100A54F16 /* HyperLinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperLinkTextField.swift; sourceTree = "<group>"; };
 		3C502D522202CA3B00468BE5 /* PopoverContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverContentView.swift; sourceTree = "<group>"; };
 		3CC05D0621F9680B00AB7E22 /* Lobsters Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lobsters Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC05D0921F9680B00AB7E22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				3C502D522202CA3B00468BE5 /* PopoverContentView.swift */,
+				3C46D2FD2213D81100A54F16 /* HyperLinkTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,15 +348,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Lobsters Bar-checkManifestLockResult.txt",
 			);
@@ -367,10 +366,8 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Lobsters Bar/Pods-Lobsters Bar-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lobsters Bar/Pods-Lobsters Bar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
@@ -380,8 +377,6 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -393,7 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lobsters Bar/Pods-Lobsters Bar-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lobsters Bar/Pods-Lobsters Bar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -408,6 +403,7 @@
 				3CC05D2921F9A0EB00AB7E22 /* APIEndpoint.swift in Sources */,
 				3CC05D1A21F96D5F00AB7E22 /* EventMonitor.swift in Sources */,
 				3C44EEF522019FC100180EAE /* Setting.swift in Sources */,
+				3C46D2FE2213D81100A54F16 /* HyperLinkTextField.swift in Sources */,
 				3CE2EED222111DC50014DBB3 /* Date+extension.swift in Sources */,
 				3C502D532202CA3B00468BE5 /* PopoverContentView.swift in Sources */,
 				3CC05D0C21F9680B00AB7E22 /* MainViewController.swift in Sources */,
@@ -590,7 +586,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.phucledien.Lobsters-Bar";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwarvesf.lobstersbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -612,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.phucledien.Lobsters-Bar";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwarvesf.lobstersbar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -633,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.phucledien.LauncherApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwarvesf.LauncherApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -655,7 +651,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.phucledien.LauncherApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwarvesf.LauncherApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;

@@ -31,7 +31,7 @@ class MainViewController: NSViewController {
     private let disposeBag = DisposeBag()
     private var timer = RepeatingTimer(timeInterval: 60*10) // every 10 mins
     private let appMenu = NSMenu()
-    private let prefWindowIsOpen = false
+    private var prefWindowIsOpen = false
     private var updateDate = Date()
     
     override func viewDidLoad() {
@@ -96,12 +96,29 @@ class MainViewController: NSViewController {
         timer.resume()
     }
     
+    func isPrefOpened() -> Bool {
+        let options = CGWindowListOption(arrayLiteral: .excludeDesktopElements, .optionOnScreenOnly)
+        let windowsListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
+        let infoList = windowsListInfo as! [[String:Any]]
+        let names = infoList.map { dict in
+            return dict["kCGWindowOwnerName"] as? String
+            }.filter({ (name) -> Bool in
+                name == "Lobsters Bar"
+            })
+        return names.count == 3
+    }
+    
     @objc private func openPreferences() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationCenter.Name.preferencesOpened), object: nil)
+        if isPrefOpened() { return }
         let vc = PreferencesViewController.initWithStoryboard()
         let window = NSWindow(contentViewController: vc)
         window.title = "Preferences"
-        window.setFrameOrigin(NSPoint(x: 200, y: 305))
+        window.setFrameOrigin(NSPoint(x: 480, y: 305))
+        window.backgroundColor = #colorLiteral(red: 0.2392156863, green: 0.2392156863, blue: 0.2666666667, alpha: 1)
         window.styleMask = [.titled, .closable, .miniaturizable]
+        window.titlebarAppearsTransparent = true
+        window.titleVisibility = .hidden
         window.makeKeyAndOrderFront(self)
         NSApp.activate(ignoringOtherApps: true)
     }
@@ -117,6 +134,7 @@ class MainViewController: NSViewController {
                 guard let strongSelf = self else {return}
                 if !inBackground {
                     strongSelf.progressIndicator.isHidden = true
+                    strongSelf.setupLabelTime()
                 }
                 strongSelf.dataSource = posts
                 strongSelf.tableView.reloadData()

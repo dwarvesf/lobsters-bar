@@ -18,5 +18,4 @@ target 'Lobsters Bar' do
    
     #Json <-> object
     pod 'ObjectMapper'
-	
 end

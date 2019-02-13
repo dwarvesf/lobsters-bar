@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let mainAppIdentifier = "io.github.phucledien.Lobsters-Bar"
+        let mainAppIdentifier = "com.dwarvesf.lobstersbar"
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == mainAppIdentifier }.isEmpty
         
@@ -37,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             components.append("Lobsters Bar") //main app name
             let newPath = NSString.path(withComponents: components)
             
-            NSWorkspace.shared.launchApplication("Lobsters Bar")
+            NSWorkspace.shared.launchApplication(newPath)
         }
         else {
             self.terminate()
